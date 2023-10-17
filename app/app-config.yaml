@@ -93,7 +93,18 @@ catalog:
         - allow: [User, Group]
 
     - type: url
-      target: https://github.com/defra-adp-sandpit/adp-software-templates/blob/features/kb/backstage-software-templates/catalog-model/all.yaml
+
+  providers:
+    microsoftGraphOrg:
+      default:
+        tenantId: ${AUTH_MICROSOFT_TENANT_ID}
+        userGroupMember:
+          filter: "displayName eq 'AG-Azure-CDO-ADP-PlatformEngineers'"
+        group:
+          filter: "displayName eq 'AG-Azure-CDO-ADP-PlatformEngineers'"
+        schedule:
+          frequency: { minutes: 60 }
+          timeout: { minutes: 10 }
 
     ## Uncomment these lines to add more example data
     # - type: url

@@ -21,30 +21,7 @@ export default async function createPlugin(
 
       microsoft: providers.microsoft.create({
         signIn: {
-          resolver: async ({ profile }, ctx) => {
-            if (!profile.email) {
-              throw new Error(
-                'Login failed, user profile does not contain an email',
-              );
-            }
-
-            // Split the email into the local part and the domain.
-            const [localPart, domain] = profile.email.split('@');
-
-            // By using `stringifyEntityRef` we ensure that the reference is formatted correctly
-            const userEntity = stringifyEntityRef({
-              kind: 'User',
-              name: localPart,
-              namespace: DEFAULT_NAMESPACE,
-            });
-
-            return ctx.issueToken({
-              claims: {
-                sub: userEntity,
-                ent: [userEntity],
-              },
-            });
-          }
+          resolver: providers.microsoft.resolvers.emailMatchingUserEntityProfileEmail(),
         }
       })
     },
