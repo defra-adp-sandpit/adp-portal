@@ -1,6 +1,14 @@
 app:
   title: ADP Portal
   baseUrl: http://localhost:3000
+  support:
+    url: https://github.com/defra-adp-sandpit/adp-portal/issues
+    items:
+      - title: Issues
+        icon: github
+        links:
+          - url: https://github.com/defra-adp-sandpit/adp-portal/issues
+            title: GitHub Issues
 
 organization:
   name: DEFRA
@@ -35,17 +43,6 @@ backend:
   #  connection:
   #    directory: 'tmp'
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
-
-integrations:
-  github:
-    - host: github.com
-      # This is a Personal Access Token or PAT from GitHub. You can find out how to generate this token, and more information
-      # about setting up the GitHub integration here: https://backstage.io/docs/getting-started/configuration#setting-up-a-github-integration
-      token: ${GITHUB_TOKEN}
-    ### Example for how to add your GitHub Enterprise instance using the API:
-    # - host: ghe.example.net
-    #   apiBaseUrl: https://ghe.example.net/api/v3
-    #   token: ${GHE_TOKEN}
 
 proxy:
   ### Example for how to add a proxy endpoint for the frontend.
@@ -84,17 +81,29 @@ catalog:
     entityFilename: catalog-info.yaml
     pullRequestBranchName: backstage-integration
   rules:
-    - allow: [Component, System, API, Resource, Location, Template]
-  locations:
-    
-    - type: url
-      target: https://github.com/defra-adp-sandpit/adp-software-templates/blob/features/kb/backstage-software-templates/catalog-model/defra-org.yaml
-      rules:
-        - allow: [User, Group]
-
-    - type: url
-
+    - allow: [Component, System, API, Resource, Location, Template, Domain, Group]
+  
+  # Providers configured to scan repos in the specified organizations for components to add to the catalog.
+  # Assumes a catalog-info.yml file is present in the root of the repo.
   providers:
+    github:
+      adpSandpit:
+        organization: 'defra-adp-sandpit'
+        catalogPath: '/catalog-info.yaml'
+        filters:
+          branch: 'main'
+        schedule:
+          frequency: { minutes: 30 }
+          timeout: { minutes: 5 }
+      #defra:
+      #  organization: 'defra'
+      #  catalogPath: '**/catalog-info.yml'
+      #  filters:
+      #    branch: 'main'
+      #  schedule:
+      #    frequency: { minutes: 30 }
+      #    timeout: { minutes: 5 }
+
     microsoftGraphOrg:
       default:
         tenantId: ${AUTH_MICROSOFT_TENANT_ID}
@@ -106,6 +115,16 @@ catalog:
           frequency: { minutes: 60 }
           timeout: { minutes: 10 }
 
+  # Locations configured to import static data into the catalog
+  locations:
+    - type: url
+      target: https://github.com/defra-adp-sandpit/adp-software-templates/blob/main/catalog-model/defra-org.yaml
+      rules:
+        - allow: [User, Group]
+
+    - type: url
+      target: https://github.com/defra-adp-sandpit/adp-software-templates/blob/main/catalog-model/all.yaml
+
     ## Uncomment these lines to add more example data
     # - type: url
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
@@ -115,3 +134,4 @@ catalog:
     #  target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
     #  rules:
     #    - allow: [User, Group]
+      
