@@ -63,6 +63,14 @@ techdocs:
   publisher:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
+integrations:
+  azure:
+    - host: dev.azure.com
+      credentials:
+        - clientId: ${AUTH_MICROSOFT_CLIENT_ID}
+          clientSecret: ${AUTH_MICROSOFT_CLIENT_SECRET}
+          tenantId: ${AUTH_MICROSOFT_TENANT_ID}
+
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
   providers: {}
