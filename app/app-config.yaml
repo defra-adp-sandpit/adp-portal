@@ -13,6 +13,9 @@ app:
 organization:
   name: DEFRA
 
+permission:
+  enabled: true
+
 backend:
   baseUrl: http://localhost:7007
   listen:
