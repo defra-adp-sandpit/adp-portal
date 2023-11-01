@@ -4,6 +4,7 @@ import { Router } from 'express';
 import type { PluginEnvironment } from '../types';
 import { ScmIntegrations } from "@backstage/integration";
 import { createAzurePipelineAction, permitAzurePipelineAction, runAzurePipelineAction } from "@antoniobergas/scaffolder-backend-module-azure-pipelines";
+import { createAzurePipelineFromGithubAction } from './scaffolder/actions/createAzurePipelineAction';
 import { getAdoServiceConnectionAction } from './scaffolder/actions/getServiceConnectionAction';
 
 export default async function createPlugin(
@@ -24,9 +25,10 @@ export default async function createPlugin(
 
   const actions = [
     ...builtInActions,
-    createAzurePipelineAction({ integrations }),
+    //createAzurePipelineAction({ integrations }),
     permitAzurePipelineAction({ integrations }),
     runAzurePipelineAction({ integrations }),
+    createAzurePipelineFromGithubAction({ integrations }),
     getAdoServiceConnectionAction({ integrations }),
   ];
 

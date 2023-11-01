@@ -137,7 +137,7 @@ export const getAdoServiceConnectionAction = (options: {
           return response.json();
         })
         .then(data => {
-          serviceConnectionId = data[0].id;
+          serviceConnectionId = data.value[0].id;
           ctx.logger.info(`Service connection ID - ${serviceConnectionId}`);
           ctx.output('serviceConnectionId', serviceConnectionId);
         });
