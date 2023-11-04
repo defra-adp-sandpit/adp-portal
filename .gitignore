@@ -52,3 +52,5 @@ site
 
 *.sqlite
 *.private-key.pem
+env.sh
+app/yarn.lock
