@@ -1,14 +1,16 @@
 import { createRouter } from '@backstage/plugin-permission-backend';
 import {
+    BackstageIdentityResponse,
+    //IdentityClient
+} from '@backstage/plugin-auth-node';
+import {
     AuthorizeResult,
     PolicyDecision,
     isResourcePermission
 } from '@backstage/plugin-permission-common';
 import {
-    PermissionPolicy
-    BackstageIdentityResponse,
-    IdentityClient,
-    PolicyAuthorizeQuery
+    PermissionPolicy,
+    PolicyQuery,
 } from '@backstage/plugin-permission-node';
 import { Router } from 'express';
 import { PluginEnvironment } from '../types';
@@ -19,7 +21,7 @@ import {
 
 class TestPermissionPolicy implements PermissionPolicy {
     async handle(
-        request: PolicyAuthorizeQuery,
+        request: PolicyQuery,
         user?: BackstageIdentityResponse,
     ): Promise<PolicyDecision> {
         if (isResourcePermission(request.permission, 'catalog-entity')) {
