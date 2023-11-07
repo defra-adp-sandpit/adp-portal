@@ -19,7 +19,7 @@ permission:
 backend:
   auth:
     keys:
-      - secret: ${BACKENDD_SECRET}
+      - secret: ${BACKEND_SECRET}
   baseUrl: http://localhost:7007
   listen:
     port: 7007
