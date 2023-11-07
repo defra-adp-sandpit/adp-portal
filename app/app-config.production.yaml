@@ -19,11 +19,6 @@ backend:
   # all interfaces, the most permissive setting. The right value depends on your specific deployment.
   listen: ':7007'
 
-  # Generate key in local terminal fdor backend connection
-  auth:
-    keys:
-      - secret: k4tP6O9TXCziHD0KBuCagnJHmehHt1px
-
   # config options: https://node-postgres.com/api/client
   database:
     client: pg
