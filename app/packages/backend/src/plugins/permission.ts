@@ -1,12 +1,12 @@
 import { createRouter } from '@backstage/plugin-permission-backend';
 import {
     BackstageIdentityResponse,
-    //IdentityClient
+    IdentityClient
 } from '@backstage/plugin-auth-node';
 import {
     AuthorizeResult,
     PolicyDecision,
-    isResourcePermission
+    isPermission
 } from '@backstage/plugin-permission-common';
 import {
     PermissionPolicy,
@@ -18,13 +18,16 @@ import {
     catalogConditions,
     createCatalogConditionalDecision,
 } from '@backstage/plugin-catalog-backend/alpha';
+import {
+    catalogEntityDeletePermission,
+  } from '@backstage/plugin-catalog-common/alpha';
 
-class TestPermissionPolicy implements PermissionPolicy {
+class CatalogDeletePermissionPolicy implements PermissionPolicy {
     async handle(
         request: PolicyQuery,
         user?: BackstageIdentityResponse,
     ): Promise<PolicyDecision> {
-        if (isResourcePermission(request.permission, 'catalog-entity')) {
+        if (isPermission(request.permission, catalogEntityDeletePermission)) {
             return createCatalogConditionalDecision(
                 request.permission,
                 catalogConditions.isEntityOwner({
@@ -43,7 +46,7 @@ export default async function createPlugin(
         config: env.config,
         logger: env.logger,
         discovery: env.discovery,
-        policy: new TestPermissionPolicy(),
+        policy: new CatalogDeletePermissionPolicy(),
         identity: env.identity,
     });
 }
