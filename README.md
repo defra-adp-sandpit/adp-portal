@@ -30,6 +30,8 @@ export AUTH_MICROSOFT_TENANT_ID=<REPLACE>
 
 The GitHub integration also requires a private key. Generate and copy this from your GitHub app to the path specified in [github-app-configuration.yaml](app/github-app-configuration.yaml).
 
+The ADO dashboard plugin requires a Personal Access Token (PAT) with build permissions. Currently this cannot be configured to use a Managed Identity.
+
 ### Running locally
 Run the following commands from the `/app` directory:
 
