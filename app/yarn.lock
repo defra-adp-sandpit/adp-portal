@@ -2700,6 +2700,26 @@
   resolved "https://registry.yarnpkg.com/@backstage/plugin-azure-devops-common/-/plugin-azure-devops-common-0.3.1.tgz#1d611e79bfe14f754fbe59ca21e45ef89e08c93f"
   integrity sha512-lx5oUNd/61aGUcxeFZXvRmPOpZ0ATF14sba2a13AaxCGA9LL6IcAX+hgGNz0o4sDuuQZ7Eci9jdwsLAa9YDVEg==
 
+"@backstage/plugin-azure-devops@^0.3.7":
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/@backstage/plugin-azure-devops/-/plugin-azure-devops-0.3.7.tgz#9a3ab07646a30e50910b333cdb2d5fb57fc6deec"
+  integrity sha512-PoOHRn672IvOrp1wHoXNWf69Z9te+IIgFAGUcjr9NhNVTGY0vhg7f1WdbDHYsvFc8F1+KzCF0EiPJYwOJ2awyA==
+  dependencies:
+    "@backstage/catalog-model" "^1.4.3"
+    "@backstage/core-components" "^0.13.6"
+    "@backstage/core-plugin-api" "^1.7.0"
+    "@backstage/errors" "^1.2.3"
+    "@backstage/plugin-azure-devops-common" "^0.3.1"
+    "@backstage/plugin-catalog-react" "^1.8.5"
+    "@backstage/theme" "^0.4.3"
+    "@material-ui/core" "^4.12.2"
+    "@material-ui/icons" "^4.9.1"
+    "@material-ui/lab" "4.0.0-alpha.61"
+    "@types/react" "^16.13.1 || ^17.0.0"
+    humanize-duration "^3.27.0"
+    luxon "^3.0.0"
+    react-use "^17.2.4"
+
 "@backstage/plugin-catalog-backend-module-github@^0.4.4":
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/@backstage/plugin-catalog-backend-module-github/-/plugin-catalog-backend-module-github-0.4.4.tgz#694c606a2c9cd9d6472c18e45c43de41e3cf065b"
@@ -8123,10 +8143,10 @@
   resolved "https://registry.yarnpkg.com/@types/range-parser/-/range-parser-1.2.5.tgz#38bd1733ae299620771bd414837ade2e57757498"
   integrity sha512-xrO9OoVPqFuYyR/loIHjnbvvyRZREYKLjxV4+dY6v3FQR3stQ9ZxIGkaclF7YhI9hfjpuTbu14hZEy94qKLtOA==
 
-"@types/react-dom@*", "@types/react-dom@<18.0.0":
-  version "17.0.21"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.21.tgz#85d56965483ce4850f5f03f9234e54a1f47786e5"
-  integrity sha512-3rQEFUNUUz2MYiRwJJj6UekcW7rFLOtmK7ajQP7qJpjNdggInl3I/xM4I3Hq1yYPdCGVMgax1gZsB7BBTtayXg==
+"@types/react-dom@*", "@types/react-dom@<18.0.0", "@types/react-dom@^17":
+  version "17.0.23"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.23.tgz#55b98df6b27595c8ca84e04e5b5df0f86bca7d24"
+  integrity sha512-lnJAZfMEDxfvELeeT24w4rnUYwpzUzQAOTfJQbWYnLcx8AEfz+fXJDCbowIBqNK/Bi4D6j8ovT8Qsda2OtDApA==
   dependencies:
     "@types/react" "^17"
 
@@ -8992,6 +9012,7 @@ anymatch@^3.0.3, anymatch@~3.1.2:
     "@backstage/core-plugin-api" "^1.7.0"
     "@backstage/integration-react" "^1.1.20"
     "@backstage/plugin-api-docs" "^0.9.12"
+    "@backstage/plugin-azure-devops" "^0.3.7"
     "@backstage/plugin-catalog" "^1.14.0"
     "@backstage/plugin-catalog-common" "^1.0.17"
     "@backstage/plugin-catalog-graph" "^0.2.37"
@@ -14101,7 +14122,7 @@ human-signals@^2.1.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-humanize-duration@^3.25.1:
+humanize-duration@^3.25.1, humanize-duration@^3.27.0:
   version "3.30.0"
   resolved "https://registry.yarnpkg.com/humanize-duration/-/humanize-duration-3.30.0.tgz#9be623d331116583ff90aeb6ccfdc2e79d6d7372"
   integrity sha512-NxpT0fhQTFuMTLnuu1Xp+ozNpYirQnbV3NlOjEKBYlE3uvMRu3LDuq8EPc3gVXxVYnchQfqVM4/+T9iwHPLLeA==
