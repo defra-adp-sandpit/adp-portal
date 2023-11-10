@@ -6,7 +6,7 @@ import {
 import {
     AuthorizeResult,
     PolicyDecision,
-    //isPermission
+    isPermission
 } from '@backstage/plugin-permission-common';
 import {
     PermissionPolicy,
@@ -14,22 +14,22 @@ import {
 } from '@backstage/plugin-permission-node';
 import { Router } from 'express';
 import { PluginEnvironment } from '../types';
-// import {
-//     catalogConditions,
-//     createCatalogPolicyDecision,
-// } from '@backstage/plugin-catalog-backend';
 import {
-     catalogConditions,
-    createCatalogConditionalDecision
-  } from '@backstage/plugin-catalog-common/alpha';
+    catalogConditions,
+    createCatalogConditionalDecision,
+} from '@backstage/plugin-catalog-backend/alpha';
+import {
+    catalogEntityDeletePermission,
+} from '@backstage/plugin-catalog-common/alpha';
 
 class CatalogDeletePermissionPolicy implements PermissionPolicy {
     async handle(
         request: PolicyQuery,
         user?: BackstageIdentityResponse,
     ): Promise<PolicyDecision> {
-        if (request.permission.name === 'catalog.entity.delete') {
+        if (isPermission(request.permission, catalogEntityDeletePermission)) {
             return createCatalogConditionalDecision(
+                request.permission,
                 catalogConditions.isEntityOwner({
                     claims: user?.identity.ownershipEntityRefs ?? [],
                 }),
