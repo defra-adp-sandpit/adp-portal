@@ -1,3 +1,4 @@
+// test comment
 import { ApiRef, createApiRef } from '@backstage/core-plugin-api';
 
 /**
