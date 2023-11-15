@@ -11,3 +11,5 @@ spec:
   type: website
   owner: john@example.com
   lifecycle: experimental
+annotations:
+  grafana/dashboard-selector: my-service
