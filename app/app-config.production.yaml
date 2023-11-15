@@ -48,3 +48,10 @@ catalog:
         schedule:
           frequency: { minutes: 60 }
           timeout: { minutes: 10 }
+
+proxy:
+  '/grafana/api':
+    target: ${GRAFANA_TARGET}
+
+grafana:
+  domain: ${GRAFANA_TARGET}
