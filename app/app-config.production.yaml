@@ -54,7 +54,9 @@ catalog:
 
 proxy:
   '/grafana/api':
-    target: ${GRAFANA_TARGET}
+    target: ${GRAFANA_ENDPOINT}
+    headers:
+      Authorization: Bearer ${GRAFANA_TOKEN}
 
 grafana:
-  domain: ${GRAFANA_TARGET}
+  domain: ${GRAFANA_ENDPOINT}

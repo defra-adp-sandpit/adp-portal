@@ -38,11 +38,7 @@ proxy:
       Authorization: Bearer ${GRAFANA_TOKEN}
 
 grafana:
-  # Publicly accessible domain
   domain:  https://SSVADPINFMG3401-apa8eed9b2hsc2an.suk.grafana.azure.com
-  # Is unified alerting enabled in Grafana?
-  # See: https://grafana.com/blog/2021/06/14/the-new-unified-alerting-system-for-grafana-everything-you-need-to-know/
-  # Optional. Default: false
   unifiedAlerting: false
 
 # Reference documentation http://backstage.io/docs/features/techdocs/configuration
