@@ -33,12 +33,12 @@ backend:
 
 proxy:
   '/grafana/api':
-    target:  https://SSVADPINFMG3401-apa8eed9b2hsc2an.suk.grafana.azure.com
+    target:  ${GRAFANA_ENDPOINT}
     headers:
       Authorization: Bearer ${GRAFANA_TOKEN}
 
 grafana:
-  domain:  https://SSVADPINFMG3401-apa8eed9b2hsc2an.suk.grafana.azure.com
+  domain:  ${GRAFANA_ENDPOINT}
   unifiedAlerting: false
 
 # Reference documentation http://backstage.io/docs/features/techdocs/configuration
