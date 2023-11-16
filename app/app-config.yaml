@@ -41,7 +41,7 @@ backend:
 proxy:
   '/grafana/api':
     # May be a public or an internal DNS
-    target:  https://SSVADPINFMG3401-apa8eed9b2hsc2an.suk.grafana.azure.com 
+    target:  https://SSVADPINFMG3401-apa8eed9b2hsc2an.suk.grafana.azure.com/api 
     headers:
       Authorization: Bearer ${GRAFANA_TOKEN}
 
