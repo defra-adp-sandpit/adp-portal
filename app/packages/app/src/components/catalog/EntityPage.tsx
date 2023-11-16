@@ -61,7 +61,6 @@ import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 import {
   EntityGrafanaDashboardsCard,
   EntityGrafanaAlertsCard,
-  EntityOverviewDashboardViewer
 } from '@k-phoen/backstage-plugin-grafana';
 
 const techdocsContent = (
