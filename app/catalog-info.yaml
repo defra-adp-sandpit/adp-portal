@@ -12,4 +12,4 @@ spec:
   owner: john@example.com
   lifecycle: experimental
 annotations:
-  grafana/dashboard-selector: my-service
+  grafana/dashboard-selector: prometheus

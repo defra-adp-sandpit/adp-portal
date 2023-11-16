@@ -59,6 +59,7 @@ import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 import {
   EntityGrafanaDashboardsCard,
+  EntityGrafanaAlertsCard
 } from '@k-phoen/backstage-plugin-grafana';
 
 const techdocsContent = (
@@ -134,7 +135,10 @@ const overviewContent = (
       <EntityCatalogGraphCard variant="gridItem" height={400} />
     </Grid>
     <Grid item md={6} xs={12}>
-      <EntityGrafanaDashboardsCard variant="gridItem" height={400}/>
+      <EntityGrafanaDashboardsCard />
+    </Grid>
+    <Grid item md={6}>
+      <EntityGrafanaAlertsCard />
     </Grid>
     <Grid item md={4} xs={12}>
       <EntityLinksCard />
