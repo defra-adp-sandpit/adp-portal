@@ -35,6 +35,14 @@ backend:
   #    directory: 'tmp'
 
 proxy:
+  '/grafana/api':
+    target:  ${GRAFANA_ENDPOINT}
+    headers:
+      Authorization: Bearer ${GRAFANA_TOKEN}
+
+grafana:
+  domain:  ${GRAFANA_ENDPOINT}
+  unifiedAlerting: false
 
 # Reference documentation http://backstage.io/docs/features/techdocs/configuration
 # Note: After experimenting with basic setup, use CI/CD to generate docs
@@ -54,6 +62,11 @@ integrations:
         - clientId: ${AUTH_MICROSOFT_CLIENT_ID}
           clientSecret: ${AUTH_MICROSOFT_CLIENT_SECRET}
           tenantId: ${AUTH_MICROSOFT_TENANT_ID}
+          
+  github:
+    - host: github.com
+      apps:
+        - $include: github-app-configuration.yaml
 
 auth:
   environment: sandpit

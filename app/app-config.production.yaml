@@ -62,3 +62,12 @@ catalog:
         schedule:
           frequency: { minutes: 30 }
           timeout: { minutes: 5 }
+          
+proxy:
+  '/grafana/api':
+    target: ${GRAFANA_ENDPOINT}
+    headers:
+      Authorization: Bearer ${GRAFANA_TOKEN}
+
+grafana:
+  domain: ${GRAFANA_ENDPOINT}
