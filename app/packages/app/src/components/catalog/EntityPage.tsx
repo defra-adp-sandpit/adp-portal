@@ -62,6 +62,11 @@ import {
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 
+import {
+  EntityGrafanaDashboardsCard,
+  EntityGrafanaAlertsCard,
+} from '@k-phoen/backstage-plugin-grafana';
+
 const techdocsContent = (
   <EntityTechdocsContent>
     <TechDocsAddons>
@@ -148,6 +153,17 @@ const overviewContent = (
   </Grid>
 );
 
+const grafanaContent = (
+  <Grid container spacing={3} alignItems='stretch'>
+    <Grid item md={6}>
+      <EntityGrafanaDashboardsCard />
+    </Grid>
+    <Grid item md={6}>
+      <EntityGrafanaAlertsCard />
+    </Grid>
+  </Grid>
+)
+
 const serviceEntityPage = (
   <EntityLayout>
     <EntityLayout.Route path="/" title="Overview">
@@ -156,6 +172,10 @@ const serviceEntityPage = (
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
       {cicdContent}
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/grafana" title="Grafana">
+      {grafanaContent}
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/api" title="API">
@@ -194,6 +214,10 @@ const websiteEntityPage = (
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
       {cicdContent}
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/grafana" title="Grafana">
+      {grafanaContent}
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/dependencies" title="Dependencies">
@@ -237,6 +261,7 @@ const componentPage = (
     <EntitySwitch.Case if={isComponentType('backend')}>
       {serviceEntityPage}
     </EntitySwitch.Case>
+
     <EntitySwitch.Case if={isComponentType('service')}>
       {serviceEntityPage}
     </EntitySwitch.Case>
@@ -244,6 +269,7 @@ const componentPage = (
     <EntitySwitch.Case if={isComponentType('frontend')}>
       {websiteEntityPage}
     </EntitySwitch.Case>
+
     <EntitySwitch.Case if={isComponentType('website')}>
       {websiteEntityPage}
     </EntitySwitch.Case>
