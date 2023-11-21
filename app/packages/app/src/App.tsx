@@ -26,7 +26,7 @@ import { apis } from './api';
 import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { Root } from './components/Root';
-import { DashboardsCard } from './components/DashboardsCard/DashboardsCard';
+import { DashboardsCard } from './components/dashboard/DashboardsCard';
 
 import { AlertDisplay, OAuthRequestDialog } from '@backstage/core-components';
 import { createApp } from '@backstage/app-defaults';

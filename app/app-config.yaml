@@ -41,13 +41,12 @@ backend:
 proxy:
   '/grafana/api':
     # May be a public or an internal DNS
-    target:  https://SSVADPINFMG3401-apa8eed9b2hsc2an.suk.grafana.azure.com/api 
+    target:  https://SSVADPINFMG3401-apa8eed9b2hsc2an.suk.grafana.azure.com
     headers:
       Authorization: Bearer ${GRAFANA_TOKEN}
 
 grafana:
-  # Publicly accessible domain
-  # domain: https://monitoring.company.com
+  domain:  https://SSVADPINFMG3401-apa8eed9b2hsc2an.suk.grafana.azure.com
 
   # Is unified alerting enabled in Grafana?
   # See: https://grafana.com/blog/2021/06/14/the-new-unified-alerting-system-for-grafana-everything-you-need-to-know/

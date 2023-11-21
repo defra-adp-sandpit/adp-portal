@@ -59,7 +59,8 @@ import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 import {
   EntityGrafanaDashboardsCard,
-  EntityGrafanaAlertsCard
+  EntityGrafanaAlertsCard,
+  EntityOverviewDashboardViewer
 } from '@k-phoen/backstage-plugin-grafana';
 
 const techdocsContent = (
@@ -96,6 +97,17 @@ const cicdContent = (
     </EntitySwitch.Case>
   </EntitySwitch>
 );
+
+const grafanaDashboard = (
+  <Grid container spacing={3} alignItems="stretch">
+    <Grid item md={6}>
+      <EntityGrafanaDashboardsCard />
+    </Grid>
+    <Grid item md={6}>
+      <EntityGrafanaAlertsCard />
+    </Grid>
+  </Grid>
+)
 
 const entityWarningContent = (
   <>
@@ -134,12 +146,6 @@ const overviewContent = (
     <Grid item md={6} xs={12}>
       <EntityCatalogGraphCard variant="gridItem" height={400} />
     </Grid>
-    <Grid item md={6} xs={12}>
-      <EntityGrafanaDashboardsCard />
-    </Grid>
-    <Grid item md={6}>
-      <EntityGrafanaAlertsCard />
-    </Grid>
     <Grid item md={4} xs={12}>
       <EntityLinksCard />
     </Grid>
@@ -154,9 +160,13 @@ const serviceEntityPage = (
     <EntityLayout.Route path="/" title="Overview">
       {overviewContent}
     </EntityLayout.Route>
-
+    
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
       {cicdContent}
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/dashboard" title="Grafana">
+      {grafanaDashboard}
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/api" title="API">
@@ -195,6 +205,10 @@ const websiteEntityPage = (
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
       {cicdContent}
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/g" title="Grafana">
+      {grafanaDashboard}
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/dependencies" title="Dependencies">
