@@ -88,7 +88,7 @@ scaffolder:
 azureDevOps:
   host: dev.azure.com
   token: ${ADO_PAT}
-  organization: defragovuk
+  organization: ${ADO_ORGANIZATION}
 
 catalog:
   import:
@@ -101,23 +101,23 @@ catalog:
   # Assumes a catalog-info.yml file is present in the root of the repo.
   providers:
     github:
-      adpSandpit:
-        organization: 'defra-adp-sandpit'
-        catalogPath: '/catalog-info.yaml'
-        filters:
-          branch: 'main'
-        schedule:
-          frequency: { minutes: 30 }
-          timeout: { minutes: 5 }
-      #defra:
-      #  organization: 'defra'
+      #adpSandpit:
+      #  organization: 'defra-adp-sandpit'
       #  catalogPath: '/catalog-info.yaml'
       #  filters:
-      #    branch: 'master'
-      #    repository: '(ffc-.+|adp-.+)'
+      #    branch: 'main'
       #  schedule:
       #    frequency: { minutes: 30 }
       #    timeout: { minutes: 5 }
+      defra:
+        organization: 'defra'
+        catalogPath: '/catalog-info.yaml'
+        filters:
+          branch: 'master'
+          repository: '(ffc-.+|adp-.+)'
+        schedule:
+          frequency: { minutes: 30 }
+          timeout: { minutes: 5 }
 
     microsoftGraphOrg:
       default:
