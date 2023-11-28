@@ -103,7 +103,7 @@ properties:
           - name: ADO_PAT
             secretRef: ado-pat
           - name: ADO_ORGANIZATION
-            secretRef: ado-org
+            secretRef: ado-organization
           - name: GRAFANA_TOKEN
             secretRef: grafana-token
           - name: GRAFANA_ENDPOINT
