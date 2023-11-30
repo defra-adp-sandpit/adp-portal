@@ -45,7 +45,6 @@ extends:
       variableGroups: 
         - adp-portal-ssv3
       variables:        
-        - APP-BASE-URL
         - ADO-ORGANIZATION
         - ADO-PAT
         - AUTH-MICROSOFT-CLIENT-ID
