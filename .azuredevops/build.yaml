@@ -31,7 +31,7 @@ resources:
       name: DEFRA/adp-pipeline-common
       endpoint: DEFRA
       type: github
-      ref: refs/heads/rv/273567
+      ref: refs/heads/rv/testenv03
 
 extends:
   template: /pipelines/common-portal-app-build.yaml@DEFRA-ADPPipelineCommon
@@ -42,5 +42,18 @@ extends:
       imageRepoName: "backstage"
     appDeployConfig:
       filepath: ".azuredevops/backstage.yaml"  
-
-
+      variableGroups: 
+        - adp-portal-ssv3
+      variables:        
+        - APP-BASE-URL
+        - ADO-ORGANIZATION
+        - ADO-PAT
+        - AUTH-MICROSOFT-CLIENT-ID
+        - AUTH-MICROSOFT-CLIENT-SECRET
+        - AUTH-MICROSOFT-TENANT-ID
+        - BACKSTAGE-BACKEND-SECRET
+        - GITHUB-APP-ID
+        - GITHUB-CLIENT-ID
+        - GITHUB-CLIENT-SECRET
+        - GITHUB-PRIVATE-KEY
+        - GRAFANA-ENDPOINT
