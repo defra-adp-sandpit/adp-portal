@@ -41,10 +41,10 @@ extends:
     appBuildConfig:
       imageRepoName: "backstage"
     appDeployConfig:
-      filepath: ".azuredevops/backstage.yaml"  
-      variableGroups: 
+      filepath: ".azuredevops/backstage.yaml"
+      variableGroups:
         - adp-portal-ssv3
-      variables:        
+      variables:
         - APP-BASE-URL
         - ADO-ORGANIZATION
         - ADO-PAT
