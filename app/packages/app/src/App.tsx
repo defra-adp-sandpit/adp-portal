@@ -36,6 +36,7 @@ import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/
 
 import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
 import { SignInPage } from '@backstage/core-components';
+import { DeliveryProgrammePage } from '@internal/plugin-adp';
 
 const app = createApp({
   components: {
@@ -110,6 +111,7 @@ const routes = (
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
+    <Route path="/adp" element={<DeliveryProgrammePage />} />
   </FlatRoutes>
 );
 

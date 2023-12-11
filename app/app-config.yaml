@@ -82,7 +82,7 @@ auth:
         clientId: ${GITHUB_CLIENT_ID}
         clientSecret: ${GITHUB_CLIENT_SECRET}
 
-scaffolder:
+# scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
 
 azureDevOps:
@@ -109,15 +109,15 @@ catalog:
         schedule:
           frequency: { minutes: 30 }
           timeout: { minutes: 5 }
-      #defra:
-      #  organization: 'defra'
-      #  catalogPath: '/catalog-info.yaml'
-      #  filters:
-      #    branch: 'master'
-      #    repository: '(ffc-.+|adp-.+)'
-      #  schedule:
-      #    frequency: { minutes: 30 }
-      #    timeout: { minutes: 5 }
+      defra:
+        organization: 'defra'
+        catalogPath: '/catalog-info.yaml'
+        filters:
+          branch: 'master'
+          repository: '(ffc-.+|adp-.+)'
+        schedule:
+          frequency: { minutes: 30 }
+          timeout: { minutes: 5 }
 
     microsoftGraphOrg:
       default:
