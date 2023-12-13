@@ -17,6 +17,7 @@
     "clean": "backstage-cli repo clean",
     "test": "backstage-cli repo test",
     "test:all": "backstage-cli repo test --coverage",
+    "test:cobertura": "backstage-cli repo test --coverage --coverageReporters=cobertura",
     "fix": "backstage-cli repo fix",
     "lint": "backstage-cli repo lint --since origin/main",
     "lint:all": "backstage-cli repo lint",
@@ -53,6 +54,13 @@
     ]
   },
   "jest": {
-    "coveragePathIgnorePatterns": ["/backend/src/plugins/", "backend/src/index.ts"]
+    "testPathIgnorePatterns": [
+      "/packages/backend/src/plugins/",
+      "/packages/backend/src/index.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/packages/backend/src/plugins/",
+      "/packages/backend/src/index.ts"
+    ]
   }
 }
