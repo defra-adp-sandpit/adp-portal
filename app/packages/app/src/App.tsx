@@ -206,7 +206,11 @@ const routes = (
     <Route path="/api-docs" element={<ApiExplorerPage />} />
     <Route
       path="/tech-radar"
-      element={<TechRadarPage width={1500} height={800} />}
+      element={<TechRadarPage width={1400} height={800}
+        title='ADP Tech Radar'
+        subtitle="Supported technolgies use approved use of the Defra's Azure Developer Platform"
+        pageTitle='ADP Tech Radar' id='dev'
+        />}
     />
     <Route
       path="/catalog-import"
